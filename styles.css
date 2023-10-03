@@ -1,0 +1,393 @@
+/* 设置全局字体 */
+body {
+    line-height: 1.6;
+    background-color: #00042c;
+    color: white;    
+}
+
+h1, h2, h3, p, ul, li, span, a /* Add any other text elements you care about */ {
+    position: relative;
+    z-index: 9999; /* Set a high z-index value */
+}
+
+/* 设置标题字体 */
+h1, h2, h3 {
+    font-family: 'Georgia', serif;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 18px;
+}
+
+h3 {
+    font-size: 14px;
+}
+
+/* 设置段落字体 */
+p {
+    margin-top: 0;
+    margin-bottom: 1em;
+    font-size: 14px;  /* 1 * 16px = 16px */
+    line-height: 1.7;
+    letter-spacing: 0.1em;
+}
+
+/* 设置列表字体 */
+ul, ol {
+    padding-left: 20px;
+    margin-top: 0;
+    margin-bottom: 1em;
+    font-size: 14px;  /* 1 * 16px = 16px */
+}
+
+
+/* 通用样式 */
+header {
+    background-image: url('pic/BG1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.header-img {
+    position: relative; /* 必须设置 position 属性为 relative, absolute, 或 fixed */
+    z-index: 3; /* 设置一个比其他元素更高的 z-index 值 */
+    border-radius: 15px;  
+    box-shadow: 0px 4px 8px 2px rgb(0, 0, 0); 
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(0, 0, 0);
+    border-radius: 5px;
+    padding: 15px;
+    border-radius: 20px;  
+    box-shadow: 0px 4px 8px 2px rgb(0, 0, 0); 
+}
+
+.header-text {
+    position: relative;
+    z-index: 2;
+    margin-left: 1em;
+    text-align: center;
+    background-color: rgba(0, 8, 50, 0);  /* 半透明文字框 */
+    padding: 15px;  /* 内边距 */
+    border-radius: 20px;  
+    box-shadow: 4px 4px 4px 0px rgba(255, 255, 255, 0.5); 
+}
+
+@media (max-width: 768px) {  /* 当屏幕宽度小于或等于768px时 */
+    .header-text {
+        background-color: rgba(0, 8, 50, 0.5);  /* 改变为其他颜色 */
+    }
+}
+
+header:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 0;  /* 初始化宽度为0 */
+    height: 100%;  /* 设置高度为100% */
+    background-color: rgba(0, 0, 0, 0); /* 初始背景色透明 */
+    transform: translateX(-50%); /* 初始化时位于中心 */
+    transition: width 0.5s ease-in-out, background-color 0.5s ease-in-out; /* 添加背景色的过渡效果 */
+    z-index: 1; /* 设置层级在文本下方 */
+    width: 40%
+}
+
+header:hover:before {
+    width: 100%; /* 鼠标悬停时宽度为100% */
+    background-color: rgba(0, 0, 0, 0.8); /* 悬停时背景色变为半透明黑色 */
+}
+
+
+
+.info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* 当屏幕宽度大于768px时 */
+header img {
+    width: 13%;
+    height: auto;
+}
+
+/* 当屏幕宽度小于或等于768px时 */
+@media screen and (max-width: 768px) {
+    header {
+        background-image: url('pic/1.png');
+    }
+
+    header img {
+        width: 30%;
+        height: auto;
+    }
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+}
+
+.left-col, .right-col {
+    width: 48%;
+}
+
+/* 左边栏 */
+.left-col {
+    position: relative;
+    background-color: #ff7b39; /* 原始颜色 */
+    overflow: hidden;
+    padding: 1em;
+    border-radius: 15px;  /* 设置圆角半径 */
+    box-shadow: 0px 4px 8px 2px rgba(0,0,0,1);  
+}
+
+.left-col:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #003776, #ff7b39); /* 水波纹颜色 */
+    transform: scale(0);
+    transition: transform 0.5s ease-in-out;
+}
+
+.left-col:hover:before {
+    transform: scale(5); /* 调整放大的尺寸 */
+}
+
+/* 右边栏 */
+
+.right-col {
+    position: relative;
+    background-color: #003776; /* 原始颜色 */
+    overflow: hidden;
+    padding: 1em;border-radius: 15px;  /* 设置圆角半径 */
+    box-shadow: 0px 4px 8px 2px rgba(0,0,0,1);  
+
+}
+
+.right-col:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #ff7b39, #003776); /* 水波纹颜色 */
+    transform: scale(0);
+    transition: transform 0.5s ease-in-out;
+}
+
+.right-col:hover:before {
+    transform: scale(5); /* 调整放大的尺寸 */
+}
+
+
+h2, h3 {
+    margin-top: 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+ul li {
+    margin-bottom: 0.5em;
+}
+
+button {
+    cursor: pointer;
+}
+
+#gotoPage2 {
+    background-color: #3498db; /* 设置背景颜色为深蓝色 */
+    font-family: 'Georgia', serif;
+    font-size: 16px;
+    color: white; /* 设置按钮文字颜色为白色 */
+    padding: 10px 20px; /* 设置按钮内部的间距 */
+    border: 4px solid #78c9ff; /* 添加一个稍微深一点的蓝色边框 */
+    cursor: pointer; /* 当鼠标悬停在按钮上时，显示一个手形光标 */
+    transition: 0.3s; /* 添加过渡效果，使得鼠标悬停或点击时的效果更为平滑 */
+    font-family: 'Arial Black', 'Impact', sans-serif;
+    border-radius: 15px;  /* 设置圆角半径 */
+    box-shadow: 0px 4px 8px 2px rgba(0,0,0,1);  
+}
+
+#gotoPage2:hover {
+    background-color: #000966; /* 当鼠标悬停在按钮上时，使背景颜色稍微深一点 */
+}
+
+#gotoPage2:active {
+    box-shadow: none; /* 当点击按钮时，移除阴影效果，产生一个“按下”感觉 */
+}
+
+#gotoPage1 {
+    background-color: #ffd000; /* 设置背景颜色为深蓝色 */
+    font-family: 'Georgia', serif;
+    font-size: 20px;
+    color: rgb(88, 88, 88); /* 设置按钮文字颜色为白色 */
+    padding: 10px 20px; /* 设置按钮内部的间距 */
+    border: 5px solid rgb(255, 252, 214); /* 添加一个稍微深一点的蓝色边框 */
+    border-radius: 15px;
+    cursor: pointer; /* 当鼠标悬停在按钮上时，显示一个手形光标 */
+    transition: 0.3s; /* 添加过渡效果，使得鼠标悬停或点击时的效果更为平滑 */
+    font-family: 'Arial Black', 'Impact', sans-serif;
+    box-shadow: 0px 4px 8px 2px rgba(0,0,0,1); 
+}
+
+#gotoPage1:hover {
+    background-color: #ef621b; /* 当鼠标悬停在按钮上时，使背景颜色稍微深一点 */
+}
+
+#gotoPage1:active {
+    box-shadow: none; /* 当点击按钮时，移除阴影效果，产生一个“按下”感觉 */
+}
+
+
+.page2-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 创建两列，每列占用容器的一半宽度 */
+    gap: 0em; /* 设置格子之间的间距 */
+}
+
+@media (max-width: 768px) {
+    .page2-container {
+        grid-template-columns: 1fr; /* 在窄屏幕上创建一列 */
+    }
+}
+.box {
+    padding: 1em;
+    border-radius: 20px;  /* 设置圆角半径 */
+    box-shadow: 0px 4px 8px 2px rgba(0,0,0,1);  
+}
+
+
+/* 设置第1个格子的颜色 */
+.box:nth-child(1) {
+    background-color: #1e1815;
+}
+
+/* 设置第2个格子的颜色 */
+.box:nth-child(2) {
+    background-color: #7bb9ff;
+}
+
+/* 设置第3个格子的颜色 */
+.box:nth-child(3) {
+    background-color: #ff930f;
+}
+
+/* 设置第4个格子的颜色 */
+.box:nth-child(4) {
+    background-color: #1683ff;
+}
+
+/* 设置第5个格子的颜色 */
+.box:nth-child(5) {
+    background-color: #ef621b;
+}
+
+/* 设置第6个格子的颜色 */
+.box:nth-child(6) {
+    background-color: #0154b3;
+}
+
+/* 设置第7个格子的颜色 */
+.box:nth-child(7) {
+    background-color: #b73d00;
+}
+
+/* 设置第7个格子的颜色 */
+.box:nth-child(8) {
+    background-color: #003776;
+}
+
+/* 设置未访问链接的颜色和去除下划线 */
+a:link {
+    color: rgb(249, 255, 165); /* 你可以用任何你想要的颜色代码，例如#ADD8E6代表浅蓝色 */
+    text-decoration: none; /* 去除下划线 */
+}
+
+/* 设置访问过的链接的颜色 */
+a:visited {
+    color: rgb(255, 240, 30); /* 设置访问过的链接颜色也为浅蓝色 */
+}
+
+/* 设置鼠标悬停链接的颜色 */
+a:hover {
+    color: rgb(255, 0, 0); /* 设置鼠标悬停时的颜色为灰色 */
+}
+
+.link1:link {
+    color: #0058b6; /* 设置您喜欢的颜色 */
+    text-decoration: none; /* 如果您希望去掉下划线 */
+}
+
+.link1:visited {
+    color: #003369; /* 设置访问过的链接的颜色 */
+}
+
+.link1:hover {
+    color: #c6f1ff; /* 设置鼠标悬停时的颜色 */
+}
+
+.link2:link {
+    color: #c6f1ff; /* 设置您喜欢的颜色 */
+    text-decoration: none; /* 如果您希望去掉下划线 */
+}
+
+.link2:visited {
+    color: #58a9ff; /* 设置访问过的链接的颜色 */
+}
+
+.link2:hover {
+    color: rgb(255, 240, 30); /* 设置鼠标悬停时的颜色 */
+}
+
+.link3:link {
+    color: rgb(255, 252, 203); /* 设置您喜欢的颜色 */
+    text-decoration: none; /* 如果您希望去掉下划线 */
+}
+
+.link3:visited {
+    color: rgb(255, 246, 151); /* 设置访问过的链接的颜色 */
+}
+
+.link3:hover {
+    color: rgb(255, 106, 0); /* 设置鼠标悬停时的颜色 */
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 60px;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.9);
+}
+
+#myImage:hover {
+    z-index: 1000; /* 使其位于最上层 */
+    transition: transform 0.5s ease-in-out;    
+}
